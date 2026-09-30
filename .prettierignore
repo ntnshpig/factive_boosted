@@ -1,0 +1,10 @@
+factive_reference/
+pnpm-lock.yaml
+
+# Third-party agent skills.
+.agents/
+.claude/
+
+# Existing docs, not yet formatted with Prettier.
+docs/ARCHITECTURE.md
+docs/DESIGN.md
