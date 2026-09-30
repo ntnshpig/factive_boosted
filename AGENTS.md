@@ -50,6 +50,7 @@ Commits use Conventional Commits (commitlint). The pre-commit hook runs lint-sta
 - Spacing base is 8px. The design scale 4/8/12/16/24/32 maps to `spacing(0.5/1/1.5/2/3/4)`.
 - Server data goes through RTK Query. `shared/api/baseApi` has no endpoints of its own. Add endpoints with `baseApi.injectEndpoints` inside the entity or feature they belong to.
 - Redux slices hold client state only. Never copy server data into slices.
+- Use `useAppSelector` / `useAppDispatch` from `@/shared/lib/redux`, not raw `useSelector` / `useDispatch`. `RootState` and `AppDispatch` are global types declared in `app/model/store.ts`, so any layer can use them without importing from `app`.
 - Forms use React Final Form with `validateWithSchema(yupSchema)` from `@/shared/lib/form`.
 - Env: read it via `@/shared/config` (`env`), never `import.meta.env` directly. `VITE_API_URL` is required. Sentry stays off when `VITE_SENTRY_DSN` is empty. When you add a variable, add it to `.env.example` and `src/vite-env.d.ts`.
 - Auth is a stub for now: `entities/session` holds an `isAuthenticated` flag that `app/routing/ProtectedRoute` checks.
